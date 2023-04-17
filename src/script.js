@@ -1,4 +1,4 @@
-
+/*
 //Assigning inputs to variables
 let firstName = document.getElementById("first-name");
 let lastName = document.getElementById("last-name");
@@ -46,4 +46,13 @@ company.addEventListener("keyup", function () {
 address.addEventListener("keyup", function () {
     localStorage.setItem("address", JSON.stringify({address: document.getElementById("address").value}));
 });
-
+*/
+const formInputs = document.querySelectorAll("input");
+formInputs.forEach( function (currentValue) {
+    if (localStorage.getItem(currentValue.name) != null) {
+        currentValue.value = localStorage.getItem(currentValue.name);
+    }
+    currentValue.addEventListener("input", function () {
+        localStorage.setItem(currentValue.name, currentValue.value);
+    });
+});
