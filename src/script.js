@@ -55,6 +55,20 @@ submit.addEventListener("click", function () {
         company: document.getElementById("company").value,
         address: document.getElementById("address").value
     };
-    localStorage.setItem("form", JSON.stringify(form));
+    //create empty array
+    let forms = [];
+
+    ///CLEAR localStorage.forms
+    //localStorage.setItem("forms", forms);
+    //
+    //
+    //push current form at the beginning
+    forms.push(form);
+    //if localStorage isn't empty add rest of forms, else push only current form
+    if (localStorage.getItem("forms").length !== 0) {
+        forms.push(...JSON.parse(localStorage.getItem("forms")));
+    }
+    localStorage.setItem("forms", JSON.stringify(forms));
+    console.log(forms);
 
 });
