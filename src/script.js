@@ -69,6 +69,6 @@ submit.addEventListener("click", function () {
         forms.push(...JSON.parse(localStorage.getItem("forms")));
     }
     localStorage.setItem("forms", JSON.stringify(forms));
-    console.log(forms);
+    console.log(localStorage.getItem("forms"));
 
 });
