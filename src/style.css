@@ -52,6 +52,12 @@
 .card-label {
     margin: 15px 10% 2px;
 }
+.delete-button {
+    border-radius: 6px;
+    background: rgb(255, 82, 82);
+    margin: 20px 20vw;
+    font-size: 18px;
+}
 body {
     background: rgb(236, 240, 241);
 }

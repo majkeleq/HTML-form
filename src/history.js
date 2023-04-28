@@ -33,6 +33,18 @@ if (localStorage.getItem('forms').length > 0) {
         addParagraph(singleForm, "company", 'card-company', 'Company', divElement);
         addParagraph(singleForm, "address", 'card-address', 'Address', divElement);
 
+        let deleteButton = document.createElement('button');
+        deleteButton.setAttribute('type', 'submit');
+        deleteButton.setAttribute('class', 'delete-button');
+        deleteButton.appendChild(document.createTextNode("Delete"));
+        divElement.appendChild(deleteButton);
+        deleteButton.addEventListener('click', function () {
+            console.log(JSON.parse(localStorage.getItem("forms"))[index]);
+            let forms = JSON.parse(localStorage.getItem('forms'));
+            forms.splice(index, 1);
+            localStorage.setItem('forms', JSON.stringify(forms));
+            location.reload();
+        });
         divForms.appendChild(divElement);
     }
 
