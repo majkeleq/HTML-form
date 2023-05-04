@@ -8,24 +8,7 @@ let address = document.getElementById("address");
 let submit = document.getElementById("submit-button")
 
 //Assigning values from localStorage to inputs
-if (localStorage.getItem("first-name") != null) {
-    firstName.value = JSON.parse(localStorage.getItem("first-name")).firstName;
-}
-if (localStorage.getItem("last-name") != null) {
-    lastName.value = JSON.parse(localStorage.getItem("last-name")).lastName;
-}
-if (localStorage.getItem("email") != null) {
-    email.value = JSON.parse(localStorage.getItem("email")).email;
-}
-if (localStorage.getItem("phone") != null) {
-    phone.value = JSON.parse(localStorage.getItem("phone")).phone;
-}
-if (localStorage.getItem("company") != null) {
-    company.value = JSON.parse(localStorage.getItem("company")).company;
-}
-if (localStorage.getItem("address") != null) {
-    address.value = JSON.parse(localStorage.getItem("address")).address;
-}
+initFields();
 
 //Adding listeners to overwrite localStorage from inputs
 firstName.addEventListener("keyup", function () {
@@ -64,11 +47,41 @@ submit.addEventListener("click", function () {
     //
     //push current form at the beginning
     forms.push(form);
-    //if localStorage isn't empty add rest of forms, else push only current form
-    if (localStorage.getItem("forms").length !== 0) {
+    //if localStorage forms exists and isn't empty add rest of forms, else push only current form
+    if (localStorage.getItem("forms") != null && localStorage.getItem("forms").length !== 0) {
         forms.push(...JSON.parse(localStorage.getItem("forms")));
     }
     localStorage.setItem("forms", JSON.stringify(forms));
     console.log(localStorage.getItem("forms"));
 
+    localStorage.removeItem('first-name');
+    localStorage.removeItem('last-name');
+    localStorage.removeItem('email');
+    localStorage.removeItem('phone');
+    localStorage.removeItem('company');
+    localStorage.removeItem('address');
+    document.querySelectorAll("input").forEach(input => {
+        input.value = "";
+    })
 });
+
+function initFields() {
+    if (localStorage.getItem("first-name") != null) {
+        firstName.value = JSON.parse(localStorage.getItem("first-name")).firstName;
+    }
+    if (localStorage.getItem("last-name") != null) {
+        lastName.value = JSON.parse(localStorage.getItem("last-name")).lastName;
+    }
+    if (localStorage.getItem("email") != null) {
+        email.value = JSON.parse(localStorage.getItem("email")).email;
+    }
+    if (localStorage.getItem("phone") != null) {
+        phone.value = JSON.parse(localStorage.getItem("phone")).phone;
+    }
+    if (localStorage.getItem("company") != null) {
+        company.value = JSON.parse(localStorage.getItem("company")).company;
+    }
+    if (localStorage.getItem("address") != null) {
+        address.value = JSON.parse(localStorage.getItem("address")).address;
+    }
+}

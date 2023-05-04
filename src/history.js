@@ -23,7 +23,7 @@ if (localStorage.getItem('forms').length > 0) {
     function addDiv(singleForm, index) {
         //Create form <div>
         const divElement = document.createElement('div');
-        divElement.setAttribute('class', 'card');
+        divElement.setAttribute('class', 'submit-history-card');
         divElement.setAttribute('id', 'card' + index);
 
         addParagraph(singleForm, "firstName", "card-first-name", 'First name', divElement);

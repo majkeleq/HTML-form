@@ -14,36 +14,46 @@
     <form action="">
         <label class="form-label" for="first-name">Frist name</label> <br/>
         <input class="form-input"
+               oninput=""
+               type="text"
                name="first-name"
                id="first-name"
-               placeholder="John"/> <br/>
+        /> <br/>
         <label class="form-label" for="last-name">Last name</label> <br/>
         <input class="form-input"
+               oninput=""
+               type="text"
                name="last-name"
                id="last-name"
-               placeholder="Smith"/> <br/>
+        /> <br/>
         <label class="form-label" for="email">Email</label> <br/>
         <input class="form-input"
+               oninput=""
                type="email"
                name="email"
                id="email"
-               placeholder="sample@email.com"/> <br/>
+        /> <br/>
         <label class="form-label" for="phone">Phone</label> <br/>
         <input class="form-input"
+               oninput=""
                type="tel"
                name="phone"
                id="phone"
-               pattern="\+[0-9]{2} [0-9]{3} [0-9]{3} [0-9]{3}"
-               placeholder="+48 123 345 789"/> <br/>
+        /> <br/>
+        <!-- pattern="\+[0-9]{2} [0-9]{3} [0-9]{3} [0-9]{3}"-->
         <label class="form-label" for="company">Company</label> <br/>
         <input class="form-input"
+               oninput=""
+               type="text"
                name="company"
                id="company"/> <br/>
         <label class="form-label" for="address">Address</label> <br/>
         <input class="form-input"
+               oninput=""
+               type="text"
                name="address"
                id="address"/> <br/>
-        <button class="submit-button" type="button" id="submit-button">Submit</button>
+        <button class="submit-button" type="submit" id="submit-button">Submit</button>
     </form>
 </div>
 <script src="script.js"></script>
