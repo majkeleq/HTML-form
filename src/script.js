@@ -5,6 +5,14 @@ let inputs = document.querySelectorAll('input');
 initFields();
 //Adding listeners to overwrite localStorage from inputs
 addInputListeners()
+//sync inputs
+window.onstorage = function() {
+    inputs.forEach(input => {
+        if (input.value !== localStorage.getItem(input.id)) {
+            input.value = localStorage.getItem(input.id);
+        }
+    })
+};
 submit.addEventListener("click", function () {
     let form = {
         firstName: inputs[0].value,
